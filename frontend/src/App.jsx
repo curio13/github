@@ -1,3 +1,4 @@
+import {Toaster} from 'react-hot-toast'
 import { useState } from 'react'
 import {Route,Routes} from 'react-router-dom'
 import LoginPage from './pages/LoginPage'
@@ -23,7 +24,7 @@ function App() {
         <Route path='/explore' element={<ExplorePage/>} />
         <Route path='/likes' element={<LikesPage/>} />
         </Routes>
-        <Footer/>
+        <Toaster/>
       </div>
     </div>
   )

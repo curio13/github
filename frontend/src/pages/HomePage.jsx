@@ -12,12 +12,16 @@ const HomePage = () => {
   const [loading,setLoading] = useState(true);
   const user = true;
 
-  const [sortType,setSortType] = useState("forks");
+  const [sortType,setSortType] = useState("recent");
 
   const getUserProfileAndRepos = useCallback(async(username="burakorkmez")=>{
 	setLoading(true);
 	try {
-		const userRes = await fetch(`https://api.github.com/users/${username}`)
+		const userRes = await fetch(`https://api.github.com/users/${username}`,{
+			headers:{
+				authorization:`token `
+			}
+		})
 		
 		const userProfile = await userRes.json();
 		setUserProfile(userProfile)
@@ -53,6 +57,7 @@ const HomePage = () => {
   setUserProfile(userProfile);
   setRepos(repos);
   setLoading(false);
+  setSortType("recent");
 
   }
 

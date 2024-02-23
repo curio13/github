@@ -4,7 +4,6 @@ const SortRepos = ({ onSort, sortType }) => {
 		{ type: "stars", text: "Most Stars" },
 		{ type: "forks", text: "Most Forks" },
 	];
-	console.log(sortType);
 
 	return (
 		<div className='mb-2 flex justify-center lg:justify-end'>

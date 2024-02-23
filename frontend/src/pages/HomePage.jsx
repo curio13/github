@@ -9,7 +9,7 @@ import Spinner from '../components/Spinner';
 const HomePage = () => {
   const [userProfile,setUserProfile] = useState(null);
   const [repos,setRepos] = useState([]);
-  const [loading,setLoading] = useState(true);
+  const [loading,setLoading] = useState(false);
   const user = true;
 
   const [sortType,setSortType] = useState("recent");
@@ -18,7 +18,7 @@ const HomePage = () => {
 	setLoading(true);
 	try {
 
-		const res = await fetch(`http://localhost:5000/api/users/profile/${username}`)
+		const res = await fetch(`/api/users/profile/${username}`)
 		const {repos,userProfile} = await res.json();
 		setRepos(repos);
 		setUserProfile(userProfile);

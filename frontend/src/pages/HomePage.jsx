@@ -10,7 +10,6 @@ const HomePage = () => {
   const [userProfile,setUserProfile] = useState(null);
   const [repos,setRepos] = useState([]);
   const [loading,setLoading] = useState(false);
-  const user = true;
 
   const [sortType,setSortType] = useState("recent");
 

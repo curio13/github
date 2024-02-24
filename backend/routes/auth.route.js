@@ -27,8 +27,8 @@ router.get("/check",(req,res)=>{
 
 
 router.get("/logout",(req,res) =>{
-    res.session.destroy({
-        message:"Logged Out"
+    req.session.destroy((err)=>{
+        res.json({message:"Logged Out"})
     })
 })
 

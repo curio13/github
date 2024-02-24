@@ -33,7 +33,7 @@ export const likeProfile = async (req, res) => {
 		const userToLike = await User.findOne({ username });
 
 		if (!userToLike) {
-			return res.status(404).json({ error: "User is not a " });
+			return res.status(404).json({ error: "User not found " });
 		}
 
 		if (user.likedProfiles.includes(userToLike.username)) {
@@ -43,8 +43,7 @@ export const likeProfile = async (req, res) => {
 		userToLike.likedBy.push({ username: user.username, avatarUrl: user.avatarUrl, likedDate: Date.now() });
 		user.likedProfiles.push(userToLike.username);
 
-		// await userToLike.save();
-		// await user.save();
+		
 		await Promise.all([userToLike.save(), user.save()]);
 
 		res.status(200).json({ message: "User liked" });

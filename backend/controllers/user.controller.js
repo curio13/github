@@ -12,7 +12,11 @@ export const getUserProfileAndRepos = async(req,res)=>{
 		
 		const userProfile = await userRes.json();
 
-		const repoRes = await fetch(userProfile.repos_url)
+		const repoRes = await fetch(userProfile.repos_url, {
+			headers: {
+				authorization: `token ${process.env.GITHUB_API_KEY}`,
+			},
+		})
 
 		const repos = await repoRes.json();
 

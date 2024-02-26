@@ -1,5 +1,5 @@
 export const explorePopularRepos = async(req,res) =>{
-    const {language} = req.params
+    const {language} = req.params;
     try {
         const res1 = await fetch(
             `https://api.github.com/search/repositories?q=language:${language}&sort=stars&order=desc&per_page=100`,{

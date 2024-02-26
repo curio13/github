@@ -5,7 +5,7 @@ const router = express.Router();
 
 router.get("/github", passport.authenticate('github',{
     scope: ['user:email']
-}),)
+}))
 
 router.get("/github/callback",
 passport.authenticate('github',{failureRedirect:process.env.CLIENT_BASE_URL+'/login'}),
@@ -23,8 +23,6 @@ router.get("/check",(req,res)=>{
         res.send({user:null})
     }
 });
-
-
 
 router.get("/logout",(req,res) =>{
     req.session.destroy((err)=>{

@@ -44,7 +44,8 @@ export const likeProfile = async (req, res) => {
 		userToLike.likedBy.push({ username: user.username, avatarUrl: user.avatarUrl, likedDate: Date.now() });
 		user.likedProfiles.push(userToLike.username);
 
-		
+		// await userToLike.save();
+		// await user.save();
 		await Promise.all([userToLike.save(), user.save()]);
 
 		res.status(200).json({ message: "User liked" });
